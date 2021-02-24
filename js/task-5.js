@@ -47,7 +47,7 @@ class Car {
    */
     turnOn() {
         this._isOn = true;
-     }
+    }
 
   /*
    * Добавь код для того чтобы заглушить автомобиль
@@ -64,23 +64,24 @@ class Car {
    * при условии, что результирующая скорость
    * не больше, чем значение свойства maxSpeed
    */
-    accelerate(value) { 
-       if (this.speed + value <= this._maxSpeed) {
+    accelerate(value) {
+        if (this._speed + value <= this._maxSpeed) {
             return this._speed += value;
         }
- 
-        return this.speed = this.maxSpeed;
+      
+        return this._maxSpeed;
     }
 
   /*
    * Отнимает от свойства speed полученное значение
    * при условии, что результирующая скорость не меньше нуля
    */
-    decelerate(value) {       
-        if (this.speed - value >= 0) {         
-            return this.speed -= value;      
+    decelerate(value) {
+         if (this._speed - value >= 0) {
+            return this._speed -= value;      
         }
-        return this.speed = 0;   
+
+        return this._speed = 0;   
     }
 
   /*
@@ -108,8 +109,8 @@ mustang.drive(1);
 mustang.turnOff();
 
 Car.getSpecs(mustang);
-// // maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
+// maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
 
-console.log(mustang._price); // 2000
+console.log(mustang.price); // 2000
 mustang.price = 4000;
-console.log(mustang._price); // 4000
+console.log(mustang.price); // 4000
